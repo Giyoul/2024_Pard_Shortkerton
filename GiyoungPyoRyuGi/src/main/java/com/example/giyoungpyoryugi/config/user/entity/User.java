@@ -58,7 +58,7 @@ public class User {
     private List<QuestionAnswer> userQuestionAnswer = new ArrayList<>();
 
 
-    public static User toEntity(UserCreateDTO dto){
+    public User toEntity(UserCreateDTO dto){
         return User.builder()
                 .userDDay(dto.getUserDDay())
                 .userLetterCount(dto.getUserLetterCount())
