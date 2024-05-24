@@ -13,7 +13,4 @@ public class UserCreateDTO {
     private String userRecevier;
     private String userRecevierAddress;
     private String userRecevierPhoneNumber;
-    private List<String> question;
-
-
 }

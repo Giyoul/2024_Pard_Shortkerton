@@ -21,7 +21,6 @@ public class UserReadDTO {
     private String userRecevier;
     private String userRecevierAddress;
     private String userRecevierPhoneNumber;
-    private List<String> question;
     private QuestionReadDTO questionReadDTO;
     private QuestionAnswerReadDTO questionAnswerReadDTO;
     private LetterReadDTO letterReadDTO;
