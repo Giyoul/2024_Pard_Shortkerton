@@ -27,7 +27,7 @@ public class UserService {
 
 
     public void createUser(UserCreateDTO userCreateDTO) {
-        userRepo.save(User.toEntity(userCreateDTO));
+        userRepo.save(new User().toEntity(userCreateDTO));
     }
 
     public List<UserReadDTO> findAll() {
