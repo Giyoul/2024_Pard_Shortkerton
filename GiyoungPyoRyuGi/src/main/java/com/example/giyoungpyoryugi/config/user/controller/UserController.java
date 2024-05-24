@@ -26,6 +26,8 @@ public class UserController {
         return userService.findById(id);
     }
 
+
+
     @PostMapping("/initial")
     @Operation(summary = "초기 정보 세팅하기", description = "D-day, 쓸 편지 개수, 받으실 분 성함, 받으실 분 주소, 받으실 분 전화번호를 받아옵니다.")
     public String createUser(@RequestBody UserCreateDTO userCreateDTO) {
