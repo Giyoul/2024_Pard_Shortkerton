@@ -1,9 +1,8 @@
 package com.example.giyoungpyoryugi.config.question.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.giyoungpyoryugi.config.question.dto.QuestionReadDTO;
+import com.example.giyoungpyoryugi.config.user.entity.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,4 +19,16 @@ public class Question {
     private Long questionId;
     private String question1;
     private String question2;
+
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "user_id")
+    User user;
+
+    public static Question toEntity(QuestionReadDTO questionReadDTO) {
+        return Question.builder()
+                .questionId(questionReadDTO.getQuestionId())
+                .question1(questionReadDTO.getQuestion1())
+                .question2(questionReadDTO.getQuestion2())
+                .build();
+    }
 }
