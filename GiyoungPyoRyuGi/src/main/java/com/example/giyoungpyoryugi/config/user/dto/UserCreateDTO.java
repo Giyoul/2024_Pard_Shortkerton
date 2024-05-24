@@ -10,6 +10,7 @@ import java.util.List;
 public class UserCreateDTO {
     private int userDDay;
     private int userLetterCount;
+    private String userName;
     private String userRecevier;
     private String userRecevierAddress;
     private String userRecevierPhoneNumber;
