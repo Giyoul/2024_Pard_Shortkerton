@@ -14,16 +14,6 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-/*
-int userDDay;
-    long userId;
-    int userLetterCount;
-    String userRecevier;
-    String userRecevierAddress;
-    String userRecevierPhoneNumber;
-
-    List<String> question;
- */
 public class UserReadDTO {
     private long userId;
     private int userDDay;

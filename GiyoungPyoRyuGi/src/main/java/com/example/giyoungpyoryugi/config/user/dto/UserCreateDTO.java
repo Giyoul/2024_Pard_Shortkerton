@@ -9,7 +9,6 @@ import java.util.List;
 @Setter
 public class UserCreateDTO {
     private int userDDay;
-    private long userId;
     private int userLetterCount;
     private String userRecevier;
     private String userRecevierAddress;
