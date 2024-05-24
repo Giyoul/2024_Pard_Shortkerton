@@ -14,11 +14,11 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class UserWriteDTO {
-    private List<QuestionReadDTO> questionReadDTO;
-    private List<QuestionAnswerReadDTO> questionAnswerReadDTO;
-    private List<LetterReadDTO> letterReadDTO;
+    private String questionReadDTO;
+    private String questionAnswerReadDTO;
+    private String letterReadDTO;
 
-    public UserWriteDTO(List<QuestionReadDTO> questionReadDTO, List<QuestionAnswerReadDTO> questionAnswerReadDTO, List<LetterReadDTO> letterReadDTO) {
+    public UserWriteDTO(String questionReadDTO, String questionAnswerReadDTO, String letterReadDTO) {
         this.questionReadDTO = questionReadDTO;
         this.questionAnswerReadDTO = questionAnswerReadDTO;
         this.letterReadDTO = letterReadDTO;
