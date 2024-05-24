@@ -47,6 +47,21 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public UserReadDTO findById(Long id) {
+        User user = userRepo.findById(id).orElseThrow();
+        return new UserReadDTO(
+                user,
+                user.getUserQuestion().stream()
+                        .map(QuestionReadDTO::new)
+                        .collect(Collectors.toList()),
+                user.getUserQuestionAnswer().stream()
+                        .map(QuestionAnswerReadDTO::new)
+                        .collect(Collectors.toList()),
+                user.getUserWroteLetter().stream()
+                        .map(LetterReadDTO::new)
+                        .collect(Collectors.toList()));
+    }
+
 
 
 }
