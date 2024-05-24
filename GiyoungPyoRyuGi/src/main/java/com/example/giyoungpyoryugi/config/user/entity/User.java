@@ -4,6 +4,7 @@ import com.example.giyoungpyoryugi.config.letter.entity.Letter;
 import com.example.giyoungpyoryugi.config.question.entity.Question;
 import com.example.giyoungpyoryugi.config.questionanswer.entity.QuestionAnswer;
 import com.example.giyoungpyoryugi.config.user.dto.UserCreateDTO;
+import com.example.giyoungpyoryugi.config.user.dto.UserWriteDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -68,7 +69,7 @@ public class User {
                 .build();
     }
 
-    public updateLetter(UserWriteDto userWriteDto) {
-
+    public void updateLetter(UserWriteDTO userWriteDto) {
+        this.userWroteLetter.add(userWriteDto.get)
     }
 }

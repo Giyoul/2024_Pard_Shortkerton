@@ -8,6 +8,7 @@ import com.example.giyoungpyoryugi.config.questionanswer.dto.QuestionAnswerReadD
 import com.example.giyoungpyoryugi.config.questionanswer.repo.QuestionAnswerRepo;
 import com.example.giyoungpyoryugi.config.user.dto.UserCreateDTO;
 import com.example.giyoungpyoryugi.config.user.dto.UserReadDTO;
+import com.example.giyoungpyoryugi.config.user.dto.UserWriteDTO;
 import com.example.giyoungpyoryugi.config.user.entity.User;
 import com.example.giyoungpyoryugi.config.user.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -62,9 +63,9 @@ public class UserService {
                         .collect(Collectors.toList()));
     }
 
-    public void addUserLetter(int id, UserWriteDto userWriteDto){
+    public void addUserLetter(int id, UserWriteDTO userWriteDto){
         User user = userRepo.findById((long) id).orElseThrow();
-        user.
+        user.updateLetter(userWriteDto);
     }
 
 

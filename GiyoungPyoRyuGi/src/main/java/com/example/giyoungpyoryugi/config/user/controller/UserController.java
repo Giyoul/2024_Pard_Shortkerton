@@ -6,6 +6,7 @@ import com.example.giyoungpyoryugi.config.question.service.QuestionService;
 import com.example.giyoungpyoryugi.config.questionanswer.service.QuestionAnswerService;
 import com.example.giyoungpyoryugi.config.user.dto.UserCreateDTO;
 import com.example.giyoungpyoryugi.config.user.dto.UserReadDTO;
+import com.example.giyoungpyoryugi.config.user.dto.UserWriteDTO;
 import com.example.giyoungpyoryugi.config.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
