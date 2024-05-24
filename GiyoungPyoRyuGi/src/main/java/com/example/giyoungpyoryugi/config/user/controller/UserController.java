@@ -20,15 +20,16 @@ public class UserController {
     private final QuestionAnswerService questionAnswerService;
     private final UserService userService;
 
-    //@GetMapping("/mypage/{id}")
-   /* @Operation(summary = "유저 데이터 보내주기", description = "D-day, 쓸 편지 개수, 쓴 편지 내용을 보내줍니다.")
-    public UserReadDTO readUser(@PathVariable Long id){
-        return userService.findById(id);
-    }*/
+    @GetMapping("/mypage")
+    @Operation(summary = "유저 데이터 보내주기", description = "D-day, 쓸 편지 개수, 쓴 편지 내용을 보내줍니다.")
+    public UserReadDTO readUser(){
+        return userService.findById(1);
+    }
 
-    @GetMapping("")
-    public List<UserReadDTO> findAll(){
-        return userService.findAll();
+    @GetMapping("/mypage/listall")
+    @Operation(summary = "유저가 쓴 편지들 보내주기", description = "쓴 편지 내용을 보내줍니다.")
+    public UserReadDTO readAllUser(){
+        return userService.findById(1);
     }
 
 
@@ -40,7 +41,7 @@ public class UserController {
         return "User Create Success";
     }
 
-//    @PostMapping("/mypage/letterwrite")
-//    @Operation(summary = "편지쓰기", description = "질문에 대한 답 두개, 질문 두개, 편지 본문 내용 두개를 받아옵니다.")
-//    public String createLetter(@RequestBody )
+    @PostMapping("/mypage/letterwrite")
+    @Operation(summary = "편지쓰기", description = "질문에 대한 답 두개, 질문 두개, 편지 본문 내용 두개를 받아옵니다.")
+    public String createLetter(@RequestBody )
 }
