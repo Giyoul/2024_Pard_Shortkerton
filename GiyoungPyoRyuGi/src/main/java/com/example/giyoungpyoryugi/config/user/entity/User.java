@@ -67,4 +67,8 @@ public class User {
                 .userRecevierPhoneNumber(dto.getUserRecevierPhoneNumber())
                 .build();
     }
+
+    public updateLetter(UserWriteDto userWriteDto) {
+
+    }
 }

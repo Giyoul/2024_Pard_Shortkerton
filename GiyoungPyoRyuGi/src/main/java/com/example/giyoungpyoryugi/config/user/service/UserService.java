@@ -62,6 +62,11 @@ public class UserService {
                         .collect(Collectors.toList()));
     }
 
+    public void addUserLetter(int id, UserWriteDto userWriteDto){
+        User user = userRepo.findById((long) id).orElseThrow();
+        user.
+    }
+
 
 
 }
