@@ -5,6 +5,7 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Getter
 public class QuestionList {
@@ -35,4 +36,17 @@ public class QuestionList {
             "앞으로 부모님과 꼭 해보고 싶은 일이 있다면 무엇인가요?",
             "부모님이 생각하는 행복이란 무엇인가요?"
     );
+
+    public List<String> pickRandomQuestion(){
+        List<String> randomQuestionList = new ArrayList<>();
+        Random random = new Random();
+        int num1 = random.nextInt(questionList.size());
+        int num2 = random.nextInt(questionList.size());
+        while (num1 != num2){
+            num2 = random.nextInt(questionList.size());
+        }
+        randomQuestionList.add(questionList.get(num1));
+        randomQuestionList.add(questionList.get(num2));
+        return randomQuestionList;
+    }
 }
