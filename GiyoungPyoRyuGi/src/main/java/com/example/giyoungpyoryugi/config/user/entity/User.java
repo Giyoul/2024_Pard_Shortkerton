@@ -70,6 +70,8 @@ public class User {
     }
 
     public void updateLetter(UserWriteDTO userWriteDto) {
-        this.userWroteLetter.add();
+        this.userWroteLetter.add(userWriteDto.getLetterReadDTO());
+        this.userQuestion.add(userWriteDto.getQuestionReadDTO());
+        this.userQuestionAnswer.add(userWriteDto.getQuestionAnswerReadDTO());
     }
 }
