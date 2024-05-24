@@ -1,18 +1,21 @@
 package com.example.giyoungpyoryugi.config.user.entity;
 
+import com.example.giyoungpyoryugi.config.letter.dto.LetterReadDTO;
 import com.example.giyoungpyoryugi.config.letter.entity.Letter;
+import com.example.giyoungpyoryugi.config.question.dto.QuestionReadDTO;
 import com.example.giyoungpyoryugi.config.question.entity.Question;
+import com.example.giyoungpyoryugi.config.questionanswer.dto.QuestionAnswerReadDTO;
 import com.example.giyoungpyoryugi.config.questionanswer.entity.QuestionAnswer;
 import com.example.giyoungpyoryugi.config.user.dto.UserCreateDTO;
-import com.example.giyoungpyoryugi.config.user.dto.UserWriteDTO;
+import com.example.giyoungpyoryugi.config.user.dto.UserLetterDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,9 +72,13 @@ public class User {
                 .build();
     }
 
-    public void updateLetter(UserWriteDTO userWriteDto) {
-        this.userWroteLetter.add(userWriteDto.getLetterReadDTO());
-        this.userQuestion.add(userWriteDto.getQuestionReadDTO());
-        this.userQuestionAnswer.add(userWriteDto.getQuestionAnswerReadDTO());
+    public void updateLetter(UserLetterDTO userLetterDTO) {
+        this.userWroteLetter.add(new LetterReadDTO(userLetterDTO.getLetterContents(),
+                userLetterDTO.getLetterTitle(),userLetterDTO.getLetterDate()));
+        this.userQuestion.add(new QuestionReadDTO(userLetterDTO.getQuestion1(),
+                userLetterDTO.getQuestion2()));
+        this.userQuestionAnswer.add(new QuestionAnswerReadDTO(userLetterDTO.getQuestionAnswer1()
+                ,userLetterDTO.getQuestionAnswer2()));
     }
+
 }

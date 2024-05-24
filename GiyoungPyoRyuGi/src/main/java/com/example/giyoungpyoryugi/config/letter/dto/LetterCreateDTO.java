@@ -10,5 +10,4 @@ public class LetterCreateDTO {
     private String letterContents;
     private String letterTitle;
     private String letterDate;
-    private Integer letterEmoticon;
 }

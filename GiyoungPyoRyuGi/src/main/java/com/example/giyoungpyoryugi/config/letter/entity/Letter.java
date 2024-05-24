@@ -21,10 +21,9 @@ public class Letter {
     private String letterContents;
     private String letterTitle;
     private String letterDate;
-    private Integer letterEmoticon;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
+    @JoinColumn( name = "user_id")
     private User user;
 
     public static Letter toEntity(LetterCreateDTO letterCreateDTO) {
@@ -32,7 +31,14 @@ public class Letter {
                 .letterContents(letterCreateDTO.getLetterContents())
                 .letterTitle(letterCreateDTO.getLetterTitle())
                 .letterDate(letterCreateDTO.getLetterDate())
-                .letterEmoticon(letterCreateDTO.getLetterEmoticon())
+                .build();
+    }
+    public static Letter toEntity(String letterContents, String letterTitle, String letterDate) {
+        return Letter.builder()
+                .letterContents(letterContents)
+                .letterTitle(letterTitle)
+                .letterDate(letterDate)
+                .user(null)
                 .build();
     }
 }

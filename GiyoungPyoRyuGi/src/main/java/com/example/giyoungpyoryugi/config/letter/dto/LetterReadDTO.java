@@ -8,18 +8,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LetterReadDTO {
+public class LetterReadDTO extends Letter {
     private Long letterId;
     private String letterContents;
     private String letterTitle;
     private String letterDate;
-    private Integer letterEmoticon;
 
     public LetterReadDTO(Letter letter) {
         this.letterId = letter.getLetterId();
         this.letterContents = letter.getLetterContents();
         this.letterTitle = letter.getLetterTitle();
         this.letterDate = letter.getLetterDate();
-        this.letterEmoticon = letter.getLetterEmoticon();
+    }
+
+    public LetterReadDTO(String letterContents, String letterTitle, String letterDate) {
+        this.letterContents = letterContents;
+        this.letterTitle = letterTitle;
+        this.letterDate = letterDate;
     }
 }

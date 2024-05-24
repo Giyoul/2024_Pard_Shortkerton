@@ -21,13 +21,19 @@ public class Question {
     private String question2;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
+    @JoinColumn(name = "user_id")
     User user;
 
     public static Question toEntity(QuestionCreateDTO questionCreateDTO) {
         return Question.builder()
                 .question1(questionCreateDTO.getQuestion1())
                 .question2(questionCreateDTO.getQuestion2())
+                .build();
+    }
+    public static Question toEntity(String question1, String question2) {
+        return Question.builder()
+                .question1(question1)
+                .question2(question2)
                 .build();
     }
 }

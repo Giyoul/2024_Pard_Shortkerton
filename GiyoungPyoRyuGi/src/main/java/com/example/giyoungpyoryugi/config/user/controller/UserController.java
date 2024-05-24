@@ -5,8 +5,8 @@ import com.example.giyoungpyoryugi.config.letter.service.LetterService;
 import com.example.giyoungpyoryugi.config.question.service.QuestionService;
 import com.example.giyoungpyoryugi.config.questionanswer.service.QuestionAnswerService;
 import com.example.giyoungpyoryugi.config.user.dto.UserCreateDTO;
+import com.example.giyoungpyoryugi.config.user.dto.UserLetterDTO;
 import com.example.giyoungpyoryugi.config.user.dto.UserReadDTO;
-import com.example.giyoungpyoryugi.config.user.dto.UserWriteDTO;
 import com.example.giyoungpyoryugi.config.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -52,8 +52,8 @@ public class UserController {
 
     @PostMapping("/mypage/letterwrite")
     @Operation(summary = "편지쓰기", description = "질문에 대한 답 두개, 질문 두개, 편지 본문 내용 두개를 받아옵니다.")
-    public String createLetter(@RequestBody UserWriteDTO userWriteDTO){
-        userService.addUserLetter(1, userWriteDTO);
+    public String createLetter(@RequestBody UserLetterDTO userLetterDTO){
+        userService.addUserLetter(1, userLetterDTO);
         return "User Letter Add Success";
     }
 }

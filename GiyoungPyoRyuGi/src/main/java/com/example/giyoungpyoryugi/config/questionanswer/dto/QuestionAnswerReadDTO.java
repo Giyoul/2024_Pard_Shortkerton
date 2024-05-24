@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class QuestionAnswerReadDTO {
+public class QuestionAnswerReadDTO extends QuestionAnswer {
     private Long questionAnswerId;
     private String questionAnswer1;
     private String questionAnswer2;
@@ -17,5 +17,10 @@ public class QuestionAnswerReadDTO {
         this.questionAnswerId = questionAnswer.getQuestionAnswerId();
         this.questionAnswer1 = questionAnswer.getQuestionAnswer1();
         this.questionAnswer2 = questionAnswer.getQuestionAnswer2();
+    }
+
+    public QuestionAnswerReadDTO(String questionAnswer1, String questionAnswer2) {
+        this.questionAnswer1 = questionAnswer1;
+        this.questionAnswer2 = questionAnswer2;
     }
 }

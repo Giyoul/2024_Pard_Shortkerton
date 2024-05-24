@@ -42,7 +42,7 @@ public class QuestionList {
         Random random = new Random();
         int num1 = random.nextInt(questionList.size());
         int num2 = random.nextInt(questionList.size());
-        while (num1 != num2){
+        while (num1 == num2){
             num2 = random.nextInt(questionList.size());
         }
         randomQuestionList.add(questionList.get(num1));

@@ -22,13 +22,20 @@ public class QuestionAnswer {
     private String questionAnswer2;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
+    @JoinColumn(name = "user_id")
     User user;
 
     public static QuestionAnswer toEntity(QuestionAnswerCreateDTO questionAnswerCreateDTO) {
         return QuestionAnswer.builder()
                 .questionAnswer1(questionAnswerCreateDTO.getQuestionAnswer1())
                 .questionAnswer2(questionAnswerCreateDTO.getQuestionAnswer2())
+                .build();
+    }
+
+    public static QuestionAnswer toEntity(String questionAnswer1, String questionAnswer2) {
+        return QuestionAnswer.builder()
+                .questionAnswer1(questionAnswer1)
+                .questionAnswer2(questionAnswer2)
                 .build();
     }
 }
