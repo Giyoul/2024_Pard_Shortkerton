@@ -32,6 +32,10 @@ public class User {
     @ColumnDefault("10")
     private int userLetterCount;
 
+
+    @ColumnDefault("'박준현'")
+    private String userName;
+
     @ColumnDefault("'아빠'")
     private String userRecevier;
 
@@ -42,13 +46,14 @@ public class User {
     private String userRecevierPhoneNumber;
 
 
-    @OneToMany(mappedBy = "letter", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Letter> userWroteLetter = new ArrayList<>();
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> userQuestion = new ArrayList<>();
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuestionAnswer> userQuestionAnswer = new ArrayList<>();
 
 
@@ -56,6 +61,7 @@ public class User {
         return User.builder()
                 .userDDay(dto.getUserDDay())
                 .userLetterCount(dto.getUserLetterCount())
+                .userName(dto.getUserName())
                 .userRecevier(dto.getUserRecevier())
                 .userRecevierAddress(dto.getUserRecevierAddress())
                 .userRecevierPhoneNumber(dto.getUserRecevierPhoneNumber())

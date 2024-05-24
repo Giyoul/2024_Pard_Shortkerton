@@ -20,10 +20,15 @@ public class UserController {
     private final QuestionAnswerService questionAnswerService;
     private final UserService userService;
 
-    @GetMapping("/mypage/{id}")
-    @Operation(summary = "유저 데이터 보내주기", description = "D-day, 쓸 편지 개수, 쓴 편지 내용을 보내줍니다.")
+    //@GetMapping("/mypage/{id}")
+   /* @Operation(summary = "유저 데이터 보내주기", description = "D-day, 쓸 편지 개수, 쓴 편지 내용을 보내줍니다.")
     public UserReadDTO readUser(@PathVariable Long id){
         return userService.findById(id);
+    }*/
+
+    @GetMapping("")
+    public List<UserReadDTO> findAll(){
+        return userService.findAll();
     }
 
     @PostMapping("/initial")

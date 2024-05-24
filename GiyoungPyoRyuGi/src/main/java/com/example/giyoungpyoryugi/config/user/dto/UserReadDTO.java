@@ -18,12 +18,13 @@ public class UserReadDTO {
     private long userId;
     private int userDDay;
     private int userLetterCount;
+    private String userName;
     private String userRecevier;
     private String userRecevierAddress;
     private String userRecevierPhoneNumber;
-    private QuestionReadDTO questionReadDTO;
-    private QuestionAnswerReadDTO questionAnswerReadDTO;
-    private LetterReadDTO letterReadDTO;
+    private List<QuestionReadDTO> questionReadDTO;
+    private List<QuestionAnswerReadDTO> questionAnswerReadDTO;
+    private List<LetterReadDTO> letterReadDTO;
 
     public UserReadDTO(User user){
         this.userId = user.getUserId();
@@ -34,7 +35,8 @@ public class UserReadDTO {
         this.userRecevierPhoneNumber = user.getUserRecevierPhoneNumber();
     }
 
-    public UserReadDTO(User user, QuestionReadDTO questionReadDTO, QuestionAnswerReadDTO questionAnswerDTO, LetterReadDTO letterReadDTO){
+    public UserReadDTO(User user, List<QuestionReadDTO> questionReadDTO, List<QuestionAnswerReadDTO> questionAnswerDTO,
+                       List<LetterReadDTO> letterReadDTO){
         this.userId = user.getUserId();
         this.userDDay = user.getUserDDay();
         this.userLetterCount = user.getUserLetterCount();
