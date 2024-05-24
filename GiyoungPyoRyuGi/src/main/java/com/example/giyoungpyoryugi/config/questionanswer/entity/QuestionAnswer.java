@@ -1,5 +1,6 @@
 package com.example.giyoungpyoryugi.config.questionanswer.entity;
 
+import com.example.giyoungpyoryugi.config.questionanswer.dto.QuestionAnswerCreateDTO;
 import com.example.giyoungpyoryugi.config.questionanswer.dto.QuestionAnswerReadDTO;
 import com.example.giyoungpyoryugi.config.user.entity.User;
 import jakarta.persistence.*;
@@ -24,11 +25,10 @@ public class QuestionAnswer {
     @JoinColumn(nullable = false, name = "user_id")
     User user;
 
-    public static QuestionAnswer toEntity(QuestionAnswerReadDTO questionAnswerReadDTO) {
+    public static QuestionAnswer toEntity(QuestionAnswerCreateDTO questionAnswerCreateDTO) {
         return QuestionAnswer.builder()
-                .questionAnswerId(questionAnswerReadDTO.getQuestionAnswerId())
-                .questionAnswer1(questionAnswerReadDTO.getQuestionAnswer1())
-                .questionAnswer2(questionAnswerReadDTO.getQuestionAnswer2())
+                .questionAnswer1(questionAnswerCreateDTO.getQuestionAnswer1())
+                .questionAnswer2(questionAnswerCreateDTO.getQuestionAnswer2())
                 .build();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.giyoungpyoryugi.config.letter.entity;
 
+import com.example.giyoungpyoryugi.config.letter.dto.LetterCreateDTO;
 import com.example.giyoungpyoryugi.config.letter.dto.LetterReadDTO;
 import com.example.giyoungpyoryugi.config.user.entity.User;
 import jakarta.persistence.*;
@@ -26,13 +27,12 @@ public class Letter {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
-    public static Letter toEntity(LetterReadDTO letterReadDTO) {
+    public static Letter toEntity(LetterCreateDTO letterCreateDTO) {
         return Letter.builder()
-                .letterId(letterReadDTO.getLetterId())
-                .letterContents(letterReadDTO.getLetterContents())
-                .letterTitle(letterReadDTO.getLetterTitle())
-                .letterDate(letterReadDTO.getLetterDate())
-                .letterEmoticon(letterReadDTO.getLetterEmoticon())
+                .letterContents(letterCreateDTO.getLetterContents())
+                .letterTitle(letterCreateDTO.getLetterTitle())
+                .letterDate(letterCreateDTO.getLetterDate())
+                .letterEmoticon(letterCreateDTO.getLetterEmoticon())
                 .build();
     }
 }
