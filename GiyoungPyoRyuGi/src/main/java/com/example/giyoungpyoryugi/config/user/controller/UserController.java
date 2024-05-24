@@ -41,7 +41,15 @@ public class UserController {
         return "User Create Success";
     }
 
+    @GetMapping("/mypage/letterwrite")
+    @Operation(summary = "두 개의 랜덤 질문을 보내주기", description = "두개의 랜덤 질문을 뽑아서 스트링 리스트로 보내줍니다.")
+    public List<String> getTwoQuestion(){
+        return pickRandomQuestion();
+    }
+
     @PostMapping("/mypage/letterwrite")
     @Operation(summary = "편지쓰기", description = "질문에 대한 답 두개, 질문 두개, 편지 본문 내용 두개를 받아옵니다.")
-    public String createLetter(@RequestBody )
+    public String createLetter(@RequestBody ){
+
+    }
 }
