@@ -47,8 +47,8 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    public UserReadDTO findById(Long id) {
-        User user = userRepo.findById(id).orElseThrow();
+    public UserReadDTO findById(int id) {
+        User user = userRepo.findById((long) id).orElseThrow();
         return new UserReadDTO(
                 user,
                 user.getUserQuestion().stream()
