@@ -72,13 +72,4 @@ public class User {
                 .build();
     }
 
-    public void updateLetter(UserLetterDTO userLetterDTO) {
-        this.userWroteLetter.add(new LetterReadDTO(userLetterDTO.getLetterContents(),
-                userLetterDTO.getLetterTitle(),userLetterDTO.getLetterDate()));
-        this.userQuestion.add(new QuestionReadDTO(userLetterDTO.getQuestion1(),
-                userLetterDTO.getQuestion2()));
-        this.userQuestionAnswer.add(new QuestionAnswerReadDTO(userLetterDTO.getQuestionAnswer1()
-                ,userLetterDTO.getQuestionAnswer2()));
-    }
-
 }

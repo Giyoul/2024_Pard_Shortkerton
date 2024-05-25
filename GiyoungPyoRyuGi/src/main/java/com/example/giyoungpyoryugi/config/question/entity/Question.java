@@ -32,8 +32,13 @@ public class Question {
     }
     public static Question toEntity(String question1, String question2) {
         return Question.builder()
+                //.questionId(questionId)
                 .question1(question1)
                 .question2(question2)
                 .build();
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
