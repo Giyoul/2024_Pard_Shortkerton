@@ -26,6 +26,10 @@ public class Letter {
     @JoinColumn( name = "user_id")
     private User user;
 
+    public void setUserWithIdOne(User user) {
+        this.user = user;
+    }
+
     public static Letter toEntity(LetterCreateDTO letterCreateDTO) {
         return Letter.builder()
                 .letterContents(letterCreateDTO.getLetterContents())
@@ -41,4 +45,14 @@ public class Letter {
                 .user(null)
                 .build();
     }
+    /*public static Letter toEntity(String letterContents, String letterTitle, String letterDate) {
+        return new Letter(letterContents, letterTitle, letterDate);
+    }
+    public Letter(String letterContents, String letterTitle, String letterDate) {
+        this.letterContents = letterContents;
+        this.letterTitle = letterTitle;
+        this.letterDate = letterDate;
+    }*/
+
+
 }

@@ -69,31 +69,28 @@ public class UserService {
 
     public void addUserLetter(int id, UserLetterDTO userLetterDTO){
         User user = userRepo.findById((long) id).orElseThrow();
-        //user.updateLetter(userLetterDTO);
-        letterRepo.save(Letter.toEntity(userLetterDTO.getLetterContents(),
+        Letter letter = Letter.builder()
+                .letterContents(userLetterDTO.getLetterContents())
+                .letterTitle(userLetterDTO.getLetterTitle())
+                .letterDate(userLetterDTO.getLetterDate())
+                .user(user)  // 사용자 ID를 1로 고정
+                .build();
+        letterRepo.save(letter);
+        /*letterRepo.save(Letter.toEntity(userLetterDTO.getLetterContents(),
                 userLetterDTO.getLetterTitle(),
-                userLetterDTO.getLetterDate()));
-        questionRepo.save(Question.toEntity(userLetterDTO.getQuestion1(),
-                userLetterDTO.getQuestion2()));
-        questionAnswerRepo.save(QuestionAnswer.toEntity(userLetterDTO.getQuestionAnswer1(),
-                userLetterDTO.getQuestionAnswer2()));
+                userLetterDTO.getLetterDate()));*/
+        Question question = Question.toEntity(userLetterDTO.getQuestion1(), userLetterDTO.getQuestion2());
+        question.setUser(user); // 사용자 ID를 1로 고정
+        questionRepo.save(question);
+
+        /*questionRepo.save(Question.toEntity(userLetterDTO.getQuestion1(),
+                userLetterDTO.getQuestion2()));*/
+        QuestionAnswer questionAnswer = QuestionAnswer.toEntity(userLetterDTO.getQuestionAnswer1(), userLetterDTO.getQuestionAnswer2());
+        questionAnswer.setUser(user); // 사용자 ID를 1로 고정
+        questionAnswerRepo.save(questionAnswer);
+
+        /*questionAnswerRepo.save(QuestionAnswer.toEntity(userLetterDTO.getQuestionAnswer1(),
+                userLetterDTO.getQuestionAnswer2()));*/
     }
-
-
-    /*
-    private Long letterId;
-    private String letterContents;
-    private String letterTitle;
-    private String letterDate;
-
-    private Long questionId;
-    private String question1;
-    private String question2;
-
-    private Long questionAnswerId;
-    private String questionAnswer1;
-    private String questionAnswer2;
-     */
-
 
 }
