@@ -12,13 +12,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
-                .allowedOrigins("http://localhost:3001")
-                .allowedMethods("GET", "POST", "OPTIONS")
+                .allowedOrigins("http://localhost:3000", "http://localhost:3001")   // 해당 도메인의 접근 만을 허용한다.
+                .allowedMethods("GET", "POST", "OPTIONS")   // 아래의 기능을 허용
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
